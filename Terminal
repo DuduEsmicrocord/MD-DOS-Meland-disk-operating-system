@@ -1,0 +1,33 @@
+-- LuaTerminal.lua
+LuaTerminal = {}
+
+-- Função para exibir a lista de comandos disponíveis
+function LuaTerminal.help()
+    print([[
+Lista de Comandos:
+help  - Exibe os comandos disponíveis
+exit  - Sai do terminal
+]])
+end
+
+-- Função principal que inicia o terminal
+function LuaTerminal.start()
+    print("Bem-vindo ao LuaTerminal!")
+    print("Digite 'help' para a lista de comandos.")
+    while true do
+        io.write("LuaTerminal #> ")  -- Mostra o prompt
+        local input = io.read()       -- Lê o input do usuário
+
+        if input == "help" then
+            LuaTerminal.help()
+        elseif input == "exit" then
+            print("Saindo do LuaTerminal...")
+            break
+        else
+            print("Comando não reconhecido: " .. input)
+        end
+    end
+end
+
+-- Iniciar o terminal automaticamente quando o arquivo for executado
+LuaTerminal.start()
